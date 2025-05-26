@@ -53,4 +53,9 @@ async def health_check():
     return {"status": "healthy"}
 
 # Run the server
+# Add this at the bottom of app.py
+if __name__ == "__main__":
+    import os
+    port = int(os.getenv("PORT", 8000))  # Railway provides PORT
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
