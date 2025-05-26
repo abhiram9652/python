@@ -2,7 +2,7 @@ import requests
 
 # Test the translation endpoint
 response = requests.post(
-    'server-production-3fa4.up.railway.app',
+    'https://server-production-3fa4.up.railway.app/translate',
     json={'text': 'Hello, how are you?'}
 )
 
