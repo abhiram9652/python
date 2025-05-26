@@ -7,5 +7,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# ✅ This line uses a shell to expand $PORT
-CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Use shell form so PORT env variable gets interpreted correctly
+CMD uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}
