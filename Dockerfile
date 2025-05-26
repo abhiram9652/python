@@ -1,24 +1,17 @@
-# Use an official Python runtime as parent image
 FROM python:3.9-slim
 
 # Set environment variables
-ENV PYTHONUNBUFFERED 1
-ENV PORT 8000
+ENV PYTHONUNBUFFERED=1 \
+    PORT=8000  # Default fallback value
 
-# Create and set working directory
 WORKDIR /app
 
-# Copy requirements file first (for layer caching)
+# Copy requirements first for better caching
 COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application
+# Copy application code
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE $PORT
-
-# Command to run the application
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use shell form to properly evaluate environment variable
+CMD uvicorn app:app --host 0.0.0.0 --port $PORT
