@@ -14,7 +14,7 @@ app = FastAPI(title="English to Telugu Translation API")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:5000"],
+    allow_origins=["http://localhost:5173", "https://language-translation-seven.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
