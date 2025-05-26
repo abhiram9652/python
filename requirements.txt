@@ -6,5 +6,5 @@ python-dotenv==1.0.0
 # For actual fine-tuned models
 transformers==4.35.2
 torch==2.6.0
-sentencepiece==0.1.99
+# sentencepiece==0.1.99
 deep_translator==1.11.4
