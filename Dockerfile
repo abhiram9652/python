@@ -1,8 +1,8 @@
 FROM python:3.9-slim
 
 # Set environment variables
-ENV PYTHONUNBUFFERED=1 \
-    PORT=8000  # Default fallback value
+ENV PYTHONUNBUFFERED=1
+ENV PORT=8000  # Default fallback value
 
 WORKDIR /app
 
